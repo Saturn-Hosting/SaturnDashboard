@@ -34,7 +34,6 @@ class verify extends Command
 
             return;
         }
-        // split by .
         $server = explode('.', $server);
         if (count($server) !== 2) {
             echo 'Invalid server name.';
@@ -54,6 +53,9 @@ class verify extends Command
             return;
         }
         $process = Ssh::create($server->user, $server->host)->usePort($server->port)->execute('ls');
-        echo $process->getOutput();
+        $success = $process->isSuccessful();
+        echo $success ? 'Server is connected.' : 'Server is not connected.';
+        $server->status = $success;
+        $server->save();
     }
 }

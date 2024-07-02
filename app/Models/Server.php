@@ -18,13 +18,6 @@ class Server extends Model
         'status',
     ];
 
-    protected $hidden = [
-        'password',
-        'host',
-        'port',
-        'user',
-    ];
-
     public function node()
     {
         return $this->belongsTo(Node::class);
