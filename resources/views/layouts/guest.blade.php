@@ -21,7 +21,7 @@
         @yield('content')
     </main>
     <footer>
-
+        <p class="trademark">&copy; {{date('Y')}} {{$_ENV['APP_NAME']}}</p>
     </footer>
 </body>
 </html>
