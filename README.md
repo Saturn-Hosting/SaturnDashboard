@@ -18,5 +18,6 @@ Open project in console
 npm i
 composer i
 php artisan migrate --seed
+php artisan key:generate
 php artisan serve --port=8080
 ```
