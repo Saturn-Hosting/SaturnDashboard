@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@example.com',
             'password' => 'pass',
+            'is_admin' => true,
         ]);
         Node::factory()->create([
             'name' => 'Node1',
