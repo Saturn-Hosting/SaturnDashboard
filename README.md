@@ -6,7 +6,7 @@ Download PHP 8.2+
 
 Download Laragon - Full
 
-Download compose package manager
+Download composer package manager
 
 Start laragon apache / mysql server by pressing start all
 
