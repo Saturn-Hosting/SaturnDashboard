@@ -1,3 +1,5 @@
-<div>
-    <!-- An unexamined life is not worth living. - Socrates -->
-</div>
+@extends('layouts.app')
+
+@section('content')
+    <div id="app"></div>
+@endsection
