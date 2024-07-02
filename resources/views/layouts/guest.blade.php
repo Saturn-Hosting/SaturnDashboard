@@ -14,6 +14,7 @@
                 <a href="/about">About</a>
                 <a href="/privacy">Privacy</a>
                 <a href="/contact">Contact</a>
+                <a href="/app">App</a>
             </ul>
         </nav>
     </header>

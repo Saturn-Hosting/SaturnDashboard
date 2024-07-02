@@ -39,7 +39,7 @@ class UserController extends Controller
 
         auth()->login($user);
 
-        return redirect('/');
+        return redirect('/app');
     }
 
     public function logout()
