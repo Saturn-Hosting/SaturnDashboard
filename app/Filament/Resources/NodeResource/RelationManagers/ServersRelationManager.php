@@ -42,7 +42,8 @@ class ServersRelationManager extends RelationManager
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('host')
-                    ->getStateUsing(fn ($record) => $record->host.':'.$record->port),
+                    ->getStateUsing(fn ($record) => $record->host.':'.$record->port)
+                    ->label('IP Address'),
                 Tables\Columns\BooleanColumn::make('status'),
             ])
             ->filters([
