@@ -9,6 +9,12 @@ class Node extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'location',
+        'status',
+    ];
+
     public function servers()
     {
         return $this->hasMany(Server::class);
