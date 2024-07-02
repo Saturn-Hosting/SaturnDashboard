@@ -25,7 +25,7 @@ class ServersRelationManager extends RelationManager
                 Forms\Components\TextInput::make('port')
                     ->required()
                     ->integer()
-                    ->placeholder(22),
+                    ->default(22),
                 Forms\Components\TextInput::make('user')
                     ->required()
                     ->maxLength(255),
