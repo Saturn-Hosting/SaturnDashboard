@@ -46,11 +46,11 @@ class NodeResource extends Resource
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Created')
                     ->sortable()
-                    ->date('Y-m-d H:i:s'),
+                    ->since(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->label('Updated')
                     ->sortable()
-                    ->date('Y-m-d H:i:s'),
+                    ->since(),
             ])
             ->filters([
                 //
