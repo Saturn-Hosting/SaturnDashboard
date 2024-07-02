@@ -3,10 +3,15 @@
 ## Quickstart
 
 Download PHP 8.2+
+
 Download Laragon - Full
+
 Download compose package manager
+
 Start laragon apache / mysql server by pressing start all
+
 Copy .env.example and rename it to .env
+
 Open project in console
 
 ```
