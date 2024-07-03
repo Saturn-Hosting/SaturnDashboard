@@ -30,9 +30,9 @@ class ServersRelationManager extends RelationManager
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('password')
-                    ->required()
-                    ->password()
                     ->maxLength(255),
+                Forms\Components\Textarea::make('private_key')
+                    ->rows(10),
             ]);
     }
 

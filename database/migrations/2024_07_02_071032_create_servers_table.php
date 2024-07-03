@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('host');
             $table->integer('port')->default(22);
             $table->string('user');
-            $table->string('password');
+            $table->string('password')->nullable();
+            $table->text('private_key')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->foreignId('node_id')->constrained('nodes')->onDelete('cascade');
             $table->timestamps();

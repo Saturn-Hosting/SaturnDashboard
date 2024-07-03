@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Node;
 use App\Models\Server;
 use Illuminate\Console\Command;
-use Spatie\Ssh\Ssh;
+use SaturnHosting\SSHConnection\SSHConnection;
 
 class verify extends Command
 {
@@ -52,9 +52,33 @@ class verify extends Command
 
             return;
         }
-        $process = Ssh::create($server->user, $server->host)->usePort($server->port)->execute('ls');
-        $success = $process->isSuccessful();
-        echo $success ? 'Server is connected.' : 'Server is not connected.';
+
+        if ($server->private_key) {
+            // make $server->host-key.txt
+            $path = storage_path('app/'.$server->node->name.'/'.$server->name.'/private-key.txt');
+            if (! file_exists($path)) {
+                mkdir(dirname($path), 0755, true);
+            }
+            file_put_contents($path, $server->private_key);
+            echo file_get_contents($path);
+            $connection = (new SSHConnection())
+                ->to($server->host)
+                ->onPort($server->port)
+                ->as($server->user)
+                ->withPrivateKey($path)
+                ->connect();
+        } elseif ($server->password) {
+            $connection = (new SSHConnection())
+                ->to($server->host)
+                ->onPort($server->port)
+                ->as($server->user)
+                ->withPassword($server->password)
+                ->connect();
+        } else {
+            return 'Server credentials not found.';
+        }
+        $command = $connection->run('echo "Hello world!"');
+        echo $command->getOutput();
         $server->status = $success;
         $server->save();
     }
