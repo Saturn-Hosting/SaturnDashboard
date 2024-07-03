@@ -40,9 +40,6 @@ class NodeResource extends Resource
                 Tables\Columns\TextColumn::make('location')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\BooleanColumn::make('status')
-                    ->label('Status')
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Created')
                     ->sortable()
