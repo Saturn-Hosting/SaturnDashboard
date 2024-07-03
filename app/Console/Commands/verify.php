@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Node;
 use App\Models\Server;
 use Illuminate\Console\Command;
-use SaturnHosting\SSHConnection\SSHConnection;
+use phpseclib\Net\SSH2;
 
 class verify extends Command
 {
@@ -52,33 +52,24 @@ class verify extends Command
 
             return;
         }
-
-        if ($server->private_key) {
-            // make $server->host-key.txt
-            $path = storage_path('app/'.$server->node->name.'/'.$server->name.'/private-key.txt');
-            if (! file_exists($path)) {
-                mkdir(dirname($path), 0755, true);
-            }
-            file_put_contents($path, $server->private_key);
-            echo file_get_contents($path);
-            $connection = (new SSHConnection())
-                ->to($server->host)
-                ->onPort($server->port)
-                ->as($server->user)
-                ->withPrivateKey($path)
-                ->connect();
-        } elseif ($server->password) {
-            $connection = (new SSHConnection())
-                ->to($server->host)
-                ->onPort($server->port)
-                ->as($server->user)
-                ->withPassword($server->password)
-                ->connect();
-        } else {
-            return 'Server credentials not found.';
+        $ssh = new SSH2($server->ip, $server->port);
+        if (! $ssh) {
+            throw new RuntimeException('Unable to connect to server.');
         }
-        $command = $connection->run('echo "Hello world!"');
-        echo $command->getOutput();
+        if ($server->private_key) {
+            $key = new RSA();
+            $key->loadKey($server->private_key);
+            $authenticated = $ssh->login($server->user, $key);
+            if (! $authenticated) {
+                throw new RuntimeException('Unable to authenticate with public-private key pair.');
+            }
+        } elseif ($server->password) {
+            $authenticated = $ssh->login($server->user, $server->password);
+            if (! $authenticated) {
+                throw new RuntimeException('Unable to authenticate with password.');
+            }
+        }
+        echo 'Server connection verified.';
         $server->status = $success;
         $server->save();
     }
