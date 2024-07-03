@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "292a8dbd4692e5bc1b068dc3ee7e5fbc",
+    "content-hash": "cd30ce3b9ca736e9259c4fcfe5f3d315",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -4894,11 +4894,11 @@
         },
         {
             "name": "saturn-hosting/php-ssh-connection",
-            "version": "1.0.0",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Saturn-Hosting/php-ssh-connection.git",
-                "reference": "master"
+                "reference": "release"
             },
             "type": "library"
         },

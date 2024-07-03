@@ -12,7 +12,7 @@
         "filament/filament": "^3.2",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
-        "saturn-hosting/php-ssh-connection": "1.0.0"
+        "saturn-hosting/php-ssh-connection": "1.0.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -27,11 +27,11 @@
             "type": "package",
             "package": {
                 "name": "saturn-hosting/php-ssh-connection",
-                "version": "1.0.0",
+                "version": "1.0.2",
                 "source": {
                     "url": "https://github.com/Saturn-Hosting/php-ssh-connection.git",
                     "type": "git",
-                    "reference": "master"
+                    "reference": "release"
                 }
             }
         }
