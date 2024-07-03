@@ -3,25 +3,14 @@
     padding: 0;
 }
 
-header {
-    background-color: #1F2933;
-}
-
 nav {
+    background-color: #333;
     color: white;
-    display: flex;
     padding: 10px;
-    padding-bottom: 15px;
-}
-
-nav h1 {
-    text-align: left;
-    width: 50%;
 }
 
 ul {
     display: flex;
-    width: 50%;
 }
 
 nav a {
@@ -29,9 +18,15 @@ nav a {
     text-decoration: none;
 }
 
-.seperate {
-    width: 50%;
-    display: flex;
+.trademark {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
 
 .user-form {
