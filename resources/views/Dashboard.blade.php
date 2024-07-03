@@ -7,7 +7,7 @@
         <a href="#" class="button">Create new project</a>
         <h3>Projects</h3>
         <div class="cards-grid">
-            <?php for ($i = 0; $i < 10; $i++) { ?>
+            <?php for ($i = 0; $i < rand(0, 20); $i++) { ?>
                 <!-- example project placeholder -->
                 <div class="card">
                     <h3>Example project</h3>

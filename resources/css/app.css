@@ -37,7 +37,8 @@ nav a {
 main {
     background-color: #33404D;
     color: white;
-    padding-bottom: 90vh;
+    min-height: calc(100vh - 50px);
+    padding-bottom: 0;
 }
 
 .content {
