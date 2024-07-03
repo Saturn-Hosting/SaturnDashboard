@@ -45,6 +45,13 @@ main {
     width: 250px;
     height: 200px;
     border-radius: 10px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
 }
 
 .card h3 {
