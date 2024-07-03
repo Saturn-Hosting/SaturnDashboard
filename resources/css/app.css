@@ -24,6 +24,10 @@ nav a {
     text-decoration: none;
 }
 
+nav a:hover {
+    color: #9AA5B1;
+}
+
 .seperate {
     width: 50%;
     display: flex;
@@ -75,4 +79,8 @@ main {
 .dashboard a {
     color: #9AA5B1;
     text-decoration: none;
+}
+
+.dashboard a:hover {
+    color: white;
 }
