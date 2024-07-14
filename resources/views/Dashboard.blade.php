@@ -10,7 +10,7 @@
         <div class="grid grid-cols-4 gap-4 cards-grid">
             <?php for ($i = 0; $i < rand(3, 20); $i++) { ?>
                 <!-- example project placeholder -->
-                <div class="card p-5 border-neutral-700 border rounded-lg justify-center align-middle text-center w-37">
+                <div class="card p-5 border-neutral-700 border rounded-lg justify-center align-middle text-center w-36">
                     <h3>Example Project</h3>
                 </div>
             <?php } ?>
