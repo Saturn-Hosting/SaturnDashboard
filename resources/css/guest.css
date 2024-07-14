@@ -2,11 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 nav {
-    background-color: #181818;
+    background-color: black;
     color: white;
     padding: 10px;
 }
-
 ul {
     display: flex;
 }
