@@ -29,4 +29,13 @@ class Project extends Model
     {
         return $this->server->node;
     }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($project) {
+            $project->slug = bin2hex(random_bytes(32));
+        });
+    }
 }

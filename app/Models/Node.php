@@ -19,4 +19,9 @@ class Node extends Model
     {
         return $this->hasMany(Server::class);
     }
+
+    public function findServer()
+    {
+        return $this->servers->first()->id;
+    }
 }

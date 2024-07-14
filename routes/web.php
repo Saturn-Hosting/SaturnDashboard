@@ -35,4 +35,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/app', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/projects/create', function () {
+        return view('projects.create');
+    })->name('projects.create');
 });
