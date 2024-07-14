@@ -10,6 +10,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Filament\Tables\Actions\Action;
+use Filament\Notifications\Notification;
 
 class ServersRelationManager extends RelationManager
 {
@@ -58,7 +59,7 @@ class ServersRelationManager extends RelationManager
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
-                Action::make('Test')
+                Action::make('Connect')
                     ->action(function (Model $record) {
                             $record->status = 0;
                             $record->save();
@@ -67,6 +68,10 @@ class ServersRelationManager extends RelationManager
                                 $record->status = 1;
                                 $record->save();
                             }
+                            Notification::make()
+                                ->title('Connection established successfully')
+                                ->success()
+                                ->send();
                     }),
             ])
             ->bulkActions([
