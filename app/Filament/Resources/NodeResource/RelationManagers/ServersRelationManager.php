@@ -65,10 +65,8 @@ class ServersRelationManager extends RelationManager
                             $output = $record->executeCommand('echo "test"');
                             if ($output == "test") {
                                 $record->status = 1;
-                            } else {
-                                $record->status = 0;
+                                $record->save();
                             }
-                            $record->save();
                     }),
             ])
             ->bulkActions([
