@@ -7,6 +7,9 @@ use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
+use Filament\Tables\Actions\Action;
 
 class ServersRelationManager extends RelationManager
 {
@@ -55,6 +58,18 @@ class ServersRelationManager extends RelationManager
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
+                Action::make('Test')
+                    ->action(function (Model $record) {
+                            $record->status = 0;
+                            $record->save();
+                            $output = $record->executeCommand('echo "test"');
+                            if ($output == "test") {
+                                $record->status = 1;
+                            } else {
+                                $record->status = 0;
+                            }
+                            $record->save();
+                    }),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
