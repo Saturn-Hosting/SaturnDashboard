@@ -21,6 +21,7 @@ class Server extends Model
         'user',
         'password',
         'status',
+        'ram',
     ];
 
     public function node()

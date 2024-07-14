@@ -37,6 +37,10 @@ class ServersRelationManager extends RelationManager
                     ->required()
                     ->password()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('ram')
+                    ->required()
+                    ->integer()
+                    ->default(8192),
             ]);
     }
 
@@ -48,6 +52,9 @@ class ServersRelationManager extends RelationManager
                 Tables\Columns\TextColumn::make('host')
                     ->getStateUsing(fn ($record) => $record->host.':'.$record->port)
                     ->label('IP Address'),
+                Tables\Columns\TextColumn::make('ram')
+                    ->label('RAM')
+                    ->getStateUsing(fn ($record) => $record->ram.' MB'),
                 Tables\Columns\BooleanColumn::make('status'),
             ])
             ->filters([

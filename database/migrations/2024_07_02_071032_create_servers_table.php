@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('user');
             $table->string('password');
             $table->tinyInteger('status')->default(0);
+            $table->integer('ram');
             $table->foreignId('node_id')->constrained('nodes')->onDelete('cascade');
             $table->timestamps();
         });
