@@ -10,6 +10,10 @@ class Server extends Model
 {
     use HasFactory;
 
+    protected $hidden = [
+        'password',
+    ];
+
     protected $fillable = [
         'name',
         'host',
@@ -17,7 +21,6 @@ class Server extends Model
         'user',
         'password',
         'status',
-        'private_key',
     ];
 
     public function node()
@@ -27,9 +30,6 @@ class Server extends Model
 
     public function executeCommand($command)
     {
-        if ($this->private_key) {
-            return "No private key support yet.";
-        }
         $conn = (new SSHConnection())
             ->to($this->host)
             ->onPort($this->port)
