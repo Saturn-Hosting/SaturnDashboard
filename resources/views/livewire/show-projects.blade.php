@@ -1,6 +1,6 @@
 <div>
     @foreach ($projects as $project)
-        <div class="card p-5 border-neutral-700 border rounded-lg justify-center align-middle text-center w-36">
+        <div class="card p-6 border rounded-lg w-56 h-32 justify-center align-middle text-center flex items-center justify-center">
             <h3>{{ $project->name }}</h3>
         </div>
     @endforeach

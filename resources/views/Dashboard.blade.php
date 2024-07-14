@@ -2,16 +2,15 @@
 
 @section('content')
     <div class="flex flex-col items-center justify-center min-h-screen ">
-        <h2 class="text-3xl">Dashboard</h2>
-        <p>Welcome to {{ $_ENV['APP_NAME'] }}, <b>{{ auth()->user()->name }}</b>!</p>
+        <p class="text-xl mb-4">Welcome to {{ $_ENV['APP_NAME'] }}, <b>{{ auth()->user()->name }}</b>!</p> 
         <br>
-        <h3 class="text-2xl">Projects</h3>
+        <h3 class="text-4xl mb-4">Projects</h3> 
         <br>
-        <div class="grid grid-cols-4 gap-4 cards-grid">
+        <div class="grid grid-cols-4 gap-6 cards-grid"> 
             <livewire:show-projects />
-            <a href="{{ route('projects.create') }}" class="card p-5 border rounded-lg w-36 justify-center align-middle text-center">
-                <h3 class="text-2xl">+</h3>
-            </a>
+            <a href="{{ route('projects.create') }}" class="card p-6 border rounded-lg w-56 h-32 justify-center align-middle text-center flex items-center justify-center">
+                <h3 class="text-3xl">+</h3> <!-- Increased from text-2xl -->
+            </a>            
         </div>
     </div>
 @endsection

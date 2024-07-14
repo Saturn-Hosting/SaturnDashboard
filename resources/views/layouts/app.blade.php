@@ -10,16 +10,11 @@
     <script src="https://kit.fontawesome.com/837e657fcc.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="static">
+    <header class="static flex">
         <nav>
             <h1>{{$_ENV['APP_NAME']}}</h1>
             <br>
             <ul>
-                <div class="seperate"></div>
-                <div class="seperate ">
-                    <a href="/app"><i class="fa-solid fa-house fa-2xl"></i></a>
-                    <a href="/logout"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a>
-                </div>
             </ul>
         </nav>
     </header>
