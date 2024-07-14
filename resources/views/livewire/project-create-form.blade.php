@@ -1,4 +1,5 @@
 <div>
+    <section>
     <h2>Create new project</h2>
     <input type="text" wire:model="selectedName" placeholder="Project name" />
     <select wire:model="selectedNode">
@@ -7,4 +8,5 @@
         @endforeach
     </select>
     <button wire:click="createProject">Create project</button>
+    </section>
 </div>

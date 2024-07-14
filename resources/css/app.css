@@ -6,13 +6,16 @@
 * {
     margin: 0 auto;
     padding: 0;
-    background-color: black;
     color: white;
     font-family: 'Roboto', sans-serif;
 }
 
-nav {
+body {
     background-color: black;
+}
+
+nav {
+    background-color: #181818;
     padding: 10px;
     position: fixed;
     top: 0px;
