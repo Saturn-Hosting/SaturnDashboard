@@ -10,14 +10,15 @@
     <script src="https://kit.fontawesome.com/837e657fcc.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
+    <header class="static">
         <nav>
             <h1>{{$_ENV['APP_NAME']}}</h1>
+            <br>
             <ul>
                 <div class="seperate"></div>
-                <div class="seperate">
-                    <a href="/app"><i class="fa-solid fa-house"></i></a>
-                    <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+                <div class="seperate absolute ">
+                    <a href="/app"><i class="fa-solid fa-house fa-2xl"></i></a>
+                    <a href="/logout"><i class="fa-solid fa-right-from-bracket fa-2xl"></i></a>
                 </div>
             </ul>
         </nav>

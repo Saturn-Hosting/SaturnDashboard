@@ -11,10 +11,10 @@
         <nav>
             <ul>
                 <a href="/">Home</a>
-                <a href="/about">About</a>
-                <a href="/privacy">Privacy</a>
-                <a href="/contact">Contact</a>
-                <a href="/app">App</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#privacy">Privacy</a>
+                <a href="/app">Dashboard</a>
             </ul>
         </nav>
     </header>
