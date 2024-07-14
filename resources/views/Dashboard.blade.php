@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-@vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/global.css'])
     <div class="flex flex-col items-center justify-center min-h-screen ">
         <h2 class="text-3xl">Dashboard</h2>
         <p>Welcome to {{ $_ENV['APP_NAME'] }}, <b>{{ auth()->user()->name }}</b>!</p>
@@ -15,7 +14,7 @@
                     <h3>Example Project</h3>
                 </div>
             <?php } ?>
-            <a href="#" class="card p-5 border rounded-lg w-36 justify-center align-middle text-center">
+            <a href="{{ route('projects.create') }}" class="card p-5 border rounded-lg w-36 justify-center align-middle text-center">
                 <h3 class="text-2xl">+</h3>
             </a>
         </div>
