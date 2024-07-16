@@ -6,6 +6,7 @@ use App\Models\Node;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use App\Models\Docker;
 
 class DatabaseSeeder extends Seeder
 {
@@ -32,6 +33,16 @@ class DatabaseSeeder extends Seeder
         Node::factory()->create([
             'name' => 'Node3',
             'location' => 'United Kingdom',
+        ]);
+
+        Docker::factory()->create([
+            'name' => 'Python 3',
+            'code' => 'FROM python:3
+WORKDIR /usr/src/app
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+CMD [ "python", "./main.py" ]',
         ]);
     }
 }

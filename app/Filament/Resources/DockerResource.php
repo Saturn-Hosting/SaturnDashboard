@@ -37,15 +37,23 @@ class DockerResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                ->label('Name')
-                ->searchable()
-                ->sortable(),
+                    ->label('Name')
+                    ->searchable()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('size')
-                ->label('Size')
-                ->description(function ($record) {
-                    return $record->getSize . ' characters';
-                })
-                ->sortable(),
+                    ->label('Size')
+                    ->description(function ($record) {
+                        return $record->getSize;
+                    })
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label('Created')
+                    ->sortable()
+                    ->since(),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->label('Updated')
+                    ->sortable()
+                    ->since(),
             ])
             ->filters([
                 //
