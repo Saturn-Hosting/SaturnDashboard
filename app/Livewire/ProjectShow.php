@@ -15,7 +15,7 @@ class ProjectShow extends Component
     {
         $slug = request()->segment(2);
         $project = Project::where('slug', $slug)->first();
-        if (!$project) {
+        if (!$project || $project->user_id != auth()->id()) {
             return abort(404);
         }
         $this->project = $project;
