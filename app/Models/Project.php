@@ -36,6 +36,10 @@ class Project extends Model
 
         static::creating(function ($project) {
             $project->slug = bin2hex(random_bytes(32));
+            $cmd = 'mkdir -p projects/' . $project->user_id . '/' . $project->slug;
+            $cmd = $cmd . ' && cd projects/' . $project->user_id . '/' . $project->slug;
+            $cmd = $cmd . ' && touch Dockerfile';
+            $project->server->executeCommand($cmd);
         });
     }
 }
