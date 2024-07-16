@@ -10,8 +10,8 @@
                 <!-- Left side content -->
                 <div class="flex flex-col items-center justify-center w-4/12 ml-32">
                     <h2 class="2xl:text-6xl lg:text-5xl font-extrabold mb-5 overflow-hidden" id="home-title">Saturn Hosting</h2>
-                    <p class="text-gray-300 2xl:text-xl lg:text-lg overflow-hidden">Discover the power of cloud computing with Saturn Hosting.</p>
-                    <p class="text-gray-300 2xl:text-xl lg:text-lg mb-6 overflow-hidden">Our platform offers scalable solutions to your needs.</p>
+                    <p class="text-gray-300 2xl:text-xl lg:text-base overflow-hidden">Discover the power of cloud computing with Saturn Hosting.</p>
+                    <p class="text-gray-300 2xl:text-xl lg:text-base mb-6 overflow-hidden">Our platform offers scalable solutions to your needs.</p>
                     <a href="/app">
                         <button onclick="" class="text-white bg-black border bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                             <p class="font-bold text-lg">Get Started ></p>
