@@ -8,7 +8,7 @@ use App\Models\Project;
 class ProjectShow extends Component
 {
     public $project;
-    public $console = "No console output found.";
+    public $console;
     public $consoleInput;
 
     public function mount()
@@ -26,7 +26,11 @@ class ProjectShow extends Component
         if (empty($this->consoleInput)) {
             return;
         }
-        $this->console = $this->project->server->executeCommand($this->consoleInput);
+        if (empty($this->console)) {
+            $this->console = $this->project->server->executeCommand($this->consoleInput);
+        } else {
+            $this->console = $this->console."\n".$this->project->server->executeCommand($this->consoleInput);
+        }
         $this->consoleInput = '';
     }
 

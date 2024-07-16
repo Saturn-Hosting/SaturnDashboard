@@ -16,7 +16,11 @@
     </div>
     <div class="console" style="margin-top:100px; color: black;">
         <div class="console-output">
-            <p>{{ $console }}</p>
+            @if (empty($console))
+                <p>No console output found.</p>
+            @else
+                <p>{!! nl2br($console) !!}</p>
+            @endif
         </div>
         <input type="text" wire:model="consoleInput" wire:keydown.enter="runCommand" class="console-input" placeholder="Type a command">
     </div>
