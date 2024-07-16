@@ -7,18 +7,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', function () {
-    return view('about');
-});
-
-Route::get('/privacy', function () {
-    return view('privacy');
-});
-
-Route::get('/contact', function () {
-    return view('contact');
-});
-
 Route::get('/login', function () {
     return view('login');
 })->name('login');
