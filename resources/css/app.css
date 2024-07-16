@@ -11,7 +11,6 @@
 
 * {
     margin: 0 auto;
-    overflow-x: hidden;
     padding: 0;
     color: white;
     font-family: "Roboto Mono", monospace;
@@ -19,6 +18,7 @@
 
 body {
     background-color: black;
+    overflow-x: hidden;
 }
 
 nav {
