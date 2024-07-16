@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 nav {
-    background-color: black;
+    background-color: transparent;
     color: white;
     padding: 10px;
 }

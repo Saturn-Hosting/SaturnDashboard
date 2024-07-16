@@ -9,11 +9,13 @@
 <body>
     <header>
         <nav>
-            <ul class="flex">
+            <ul class="flex border bg-black">
+                <a href="/"><b>Saturn Hosting</b></a>
+                <a href="/">||</a>
                 <a href="/">Home</a>
                 <a href="#about">About</a>
+                <a href="#plans">Plans</a>
                 <a href="#contact">Contact</a>
-                <a href="#privacy">Privacy</a>
                 <a href="/app">Dashboard</a>
             </ul>
         </nav>
