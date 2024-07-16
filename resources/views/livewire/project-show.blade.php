@@ -16,5 +16,6 @@
     </div>
     <div class="console" style="margin-top:100px;">
         <p>{{ $console }}</p>
+        <input type="text" wire:model="consoleInput" wire:keydown.enter="runCommand" class="console-input" placeholder="Type a command">
     </div>
 </div>

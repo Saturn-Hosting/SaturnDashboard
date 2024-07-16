@@ -9,6 +9,7 @@ class ProjectShow extends Component
 {
     public $project;
     public $console = "No console output found.";
+    public $consoleInput;
 
     public function mount()
     {
@@ -18,6 +19,15 @@ class ProjectShow extends Component
             return abort(404);
         }
         $this->project = $project;
+    }
+
+    public function runCommand()
+    {
+        if (empty($this->consoleInput)) {
+            return;
+        }
+        $this->console = $this->project->server->executeCommand($this->consoleInput);
+        $this->consoleInput = '';
     }
 
     public function render()
