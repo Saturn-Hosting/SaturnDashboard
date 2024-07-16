@@ -11,5 +11,11 @@ class Docker extends Model
         'name',
         'code',
     ];
+
+    public function getSizeAttribute()
+    {
+        return strlen($this->attributes['code']); 
+    }
+
     use HasFactory;
 }

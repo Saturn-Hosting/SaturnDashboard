@@ -40,8 +40,12 @@ class DockerResource extends Resource
                 ->label('Name')
                 ->searchable()
                 ->sortable(),
-                Tables\Columns\TextColumn::make('code')
-                ->label('Dockerfile')
+                Tables\Columns\TextColumn::make('size')
+                ->label('Size')
+                ->description(function ($record) {
+                    return $record->getSize . ' characters';
+                })
+                ->sortable(),
             ])
             ->filters([
                 //
