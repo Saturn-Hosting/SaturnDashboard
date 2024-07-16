@@ -27,4 +27,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/projects/create', function () {
         return view('projects.create');
     })->name('projects.create');
+
+    Route::get('/projects/{slug}/show', function () {
+        return view('projects.show');
+    })->name('projects.show');
 });
