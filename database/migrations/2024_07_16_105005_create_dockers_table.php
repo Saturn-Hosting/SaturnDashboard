@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('dockers', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique(); 
-            $table->text('code');
+            $table->LongText('code');
             $table->timestamps();
         });
     }
