@@ -5,13 +5,16 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Node;
 use App\Models\Project;
+use App\Models\Docker;
 
 class ProjectCreateForm extends Component
 {
     public $nodes;
+    public $images;
 
     public $selectedNode;
     public $selectedName;
+    public $selectedImage;
 
     public function mount()
     {
@@ -24,11 +27,23 @@ class ProjectCreateForm extends Component
             return;
         }
         $this->selectedNode = $this->nodes->first()->id;
+        $this->images = Docker::all();
+        if (empty($this->images->first())) {
+            throw new \Exception('No images available');
+            return;
+        }
+        $this->selectedImage = $this->images->first()->id;
     }
 
     public function createProject()
     {
         if (empty($this->selectedName)) {
+            return;
+        }
+
+        $image = Docker::find($this->selectedImage);
+        if (empty($image)) {
+            throw new \Exception('Image is required');
             return;
         }
 
@@ -48,6 +63,7 @@ class ProjectCreateForm extends Component
         $project->name = $this->selectedName;
         $project->user_id = auth()->id();
         $project->server_id = $server;
+        $project->docker_id = $this->selectedImage;
         $project->save();
         return redirect()->route('dashboard');
     }

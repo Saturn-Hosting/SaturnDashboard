@@ -12,6 +12,11 @@ class Docker extends Model
         'code',
     ];
 
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
+
     public function getSizeAttribute()
     {
         $size = strlen($this->attributes['code']);

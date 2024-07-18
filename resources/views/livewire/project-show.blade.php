@@ -12,6 +12,10 @@
                 <h2>Created</h2>
                 <p>{{ $project->created_at->diffForHumans() }}</p>
             </div>
+            <div class="dashboard-item">
+                <h2>Image</h2>
+                <p>{{ $project->docker->name }}</p>
+            </div>
         </div>
     </div>
     <div class="console" style="margin-top:100px; color: black;">

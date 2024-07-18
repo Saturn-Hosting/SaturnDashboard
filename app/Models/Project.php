@@ -13,6 +13,7 @@ class Project extends Model
         'name',
         'user_id',
         'server_id',
+        'docker_id'
     ];
 
     public function user()
@@ -28,6 +29,11 @@ class Project extends Model
     public function node()
     {
         return $this->server->node;
+    }
+
+    public function docker()
+    {
+        return $this->belongsTo(Docker::class);
     }
 
     public static function boot()
