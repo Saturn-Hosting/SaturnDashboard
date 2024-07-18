@@ -45,7 +45,18 @@ class Project extends Model
             $cmd = 'mkdir -p projects/' . $project->user_id . '/' . $project->slug;
             $cmd = $cmd . ' && cd projects/' . $project->user_id . '/' . $project->slug;
             $cmd = $cmd . ' && touch Dockerfile';
+            $cmd = $cmd . ' && echo "' . $project->docker->code . '" > Dockerfile';
+            $cmd = $cmd . ' && echo "'.$project->server->password.'" | sudo -S docker build -t ' . $project->docker->name . ' .';
+            $cmd = $cmd . ' && echo "'.$project->server->password.'" | sudo -S docker run -d --name ' . $project->slug . ' -it ' . $project->docker->name;
             $project->server->executeCommand($cmd);
         });
+    }
+
+    public function executeInDocker($command)
+    {
+        $cmd = 'echo "' . $this->server->password . '" | sudo -S docker exec -it ' . $this->slug . ' ' . $command;
+        $this->server->executeCommand($cmd);
+        $cmd = 'echo "' . $this->server->password . '" | sudo -S docker logs -it ' . $this->slug;
+        return $this->server->executeCommand($cmd);
     }
 }

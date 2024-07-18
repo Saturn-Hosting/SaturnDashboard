@@ -27,9 +27,9 @@ class ProjectShow extends Component
             return;
         }
         if (empty($this->console)) {
-            $this->console = $this->project->server->executeCommand($this->consoleInput);
+            $this->console = $this->project->executeInDocker($this->consoleInput);
         } else {
-            $this->console = $this->console."\n".$this->project->server->executeCommand($this->consoleInput);
+            $this->console = $this->console."\n".$this->project->executeInDocker($this->consoleInput);
         }
         $this->consoleInput = '';
     }
